@@ -1,16 +1,30 @@
-# tanstack-todo
+# TanStack To-Do Demo
 
-To install dependencies:
+This is a demo project of using TanStack Start with Prisma to build full-stack apps.
 
-```bash
+# Prepare
+
+Install all dependencies:
+
+```shell
 bun install
 ```
 
-To run:
+Then in `.env` file provide a `DATABASE_URL` variable that should contain connection to the PostgreSQL database. Then
+run migrations:
 
-```bash
-bun run index.ts
+```shell
+bunx --bun prisma migrate deploy
+bunx --bun prisma db pull
 ```
 
-This project was created using `bun init` in bun v1.3.11. [Bun](https://bun.com) is a fast all-in-one JavaScript
-runtime.
+Now you can start the project:
+
+```shell
+# Start dev server
+bun --bun dev
+
+# Build the app and run it
+bun --bun run build
+bun --bun run .output/server/index.mjs
+```
